@@ -1,0 +1,23 @@
+{
+
+    "min2" : {
+        "prefix" : "min2",
+        "body" : [
+            "[${3:val},${4:irow}] = min(${2:A},[],1);",
+            "[$3,${5:icol}] = min($3);",
+            "$4 = $4($5);"     
+        ],
+        "description": "2D matrix minimum value and indexes"
+    },
+
+    "max2" : {
+        "prefix" : "max2",
+        "body" : [
+            "[${3:val},${4:irow}] = max(${2:A},[],1);",
+            "[$3,${5:icol}] = max($3);",
+            "$4 = $4($5);"     
+        ],
+        "description": "2D matrix maximum value and indexes"
+    }
+
+}    

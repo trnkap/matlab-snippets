@@ -1,0 +1,13 @@
+{
+    
+    "cla" : {
+        "prefix" : "cla",
+        "body" : [
+            "clear;",
+            "close all;",
+            "clc;\n"
+        ],
+        "description": "clear workspace and close windows"
+    }
+
+}    

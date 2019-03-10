@@ -1,0 +1,119 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="1388214899" file="C:\work\repo\pco\toolboxes\snippets\MATLAB Snippets.prj" location="C:\work\repo\pco\toolboxes\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+    <param.appname>MATLAB Snippets</param.appname>
+    <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
+    <param.email>pavel@trnka.name</param.email>
+    <param.company />
+    <param.icon>${PROJECT_ROOT}\MATLAB Snippets_resources\icon_24.png</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\MATLAB Snippets_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\MATLAB Snippets_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\MATLAB Snippets_resources\icon_16.png</file>
+    </param.icons>
+    <param.summary>Code snippets for the Matlab editor.</param.summary>
+    <param.description>Code snippets for the Matlab editor. Adding the app to the Quick Access Toolbar allows you to trigger it by a keyboard shortcut (e.g. ALT+1). Features:
+&lt;ul&gt;
+&lt;li&gt;snippets can contain tabstops with default values (placeholders)&lt;/li&gt;
+&lt;li&gt;any tabstop value can be mirrored on multiple locations in the snippet&lt;/li&gt;
+&lt;li&gt;variables containing currently selected text, currently edited filename, etc. can be used&lt;/li&gt;
+&lt;li&gt;regular expression replacement can be used&lt;/li&gt;
+&lt;/ul&gt;
+Snippets definition uses syntax compatible with &lt;a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets"&gt;Visual Studio Code&lt;/a&gt; and &lt;a href="https://macromates.com/manual/en/snippets"&gt;Textmate&lt;/a&gt;.</param.description>
+    <param.screenshot>${PROJECT_ROOT}\graphics\screenshot01.png</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>C:\work\repo\pco\toolboxes\snippets</param.output>
+    <param.guid>8bfd37e6-10e5-4889-84a4-6c68df10c1c1</param.guid>
+    <unset>
+      <param.company />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}\insertSnippet.m</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}\+Snippet\+Element\Array.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Element\Regexp.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Element\Tabstop.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Element\TabstopMultiChoice.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Element\Text.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\clipBoard.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\date.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\dayName.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\dayNameShort.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\directory.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\fileName.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\fileNameBase.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\filePath.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\hour.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\lineIndex.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\lineNumber.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\minute.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\month.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\monthName.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\monthNameShort.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\second.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\selectedText.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\userName.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\year.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\+Variable\yearShort.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\Element.m</file>
+      <file>${PROJECT_ROOT}\+Snippet\Snippet.m</file>
+      <file>${PROJECT_ROOT}\dialogs\insertSnippetAboutDlg.m</file>
+      <file>${PROJECT_ROOT}\dialogs\insertSnippetOptionsDlg.m</file>
+      <file>${PROJECT_ROOT}\jsonlab-1.5\jsonopt.m</file>
+      <file>${PROJECT_ROOT}\jsonlab-1.5\loadjson.m</file>
+      <file>${PROJECT_ROOT}\jsonlab-1.5\mergestruct.m</file>
+      <file>${PROJECT_ROOT}\jsonlab-1.5\struct2jdata.m</file>
+      <file>${PROJECT_ROOT}\jsonlab-1.5\varargin2struct.m</file>
+      <file>${PROJECT_ROOT}\utils\addToFavorites.m</file>
+      <file>${PROJECT_ROOT}\utils\editor\clearWordAtCaretPosion.m</file>
+      <file>${PROJECT_ROOT}\utils\editor\getActiveEditor.m</file>
+      <file>${PROJECT_ROOT}\utils\editor\getLineAtCaretPosition.m</file>
+      <file>${PROJECT_ROOT}\utils\editor\getWordAtCaretPosition.m</file>
+      <file>${PROJECT_ROOT}\utils\findjobj_fast.m</file>
+      <file>${PROJECT_ROOT}\utils\findMatchingClosingBracket.m</file>
+      <file>${PROJECT_ROOT}\utils\regexp\decomposeRegexpPlaceholder.m</file>
+      <file>${PROJECT_ROOT}\utils\regexp\textMate2regexprep.m</file>
+    </fileset.depfun>
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\graphics</file>
+      <file>${PROJECT_ROOT}\insertSnippetOptions.mat</file>
+      <file>${PROJECT_ROOT}\matlabSnippets.html</file>
+      <file>${PROJECT_ROOT}\snippets</file>
+      <file>${PROJECT_ROOT}\utils\formatting</file>
+    </fileset.resources>
+    <fileset.package />
+    <build-deliverables>
+      <file location="C:\work\repo\pco\toolboxes" name="snippets" optional="false">C:\work\repo\pco\toolboxes\snippets</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>C:\Program Files\MATLAB\R2018b</root>
+      <toolboxes />
+    </matlab>
+    <platform>
+      <unix>false</unix>
+      <mac>false</mac>
+      <windows>true</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.0</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>win64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

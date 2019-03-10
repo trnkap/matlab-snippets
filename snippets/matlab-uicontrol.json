@@ -1,0 +1,126 @@
+{
+    
+    "uiCheckbox" : {
+        "prefix": "uiCheckbox",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'checkbox', ...",
+            "\t'String', '${1:Description text}', ...",
+            "\t'Value', 1, ...",
+            "\t'Position', [${2:${3:left} ${4:bottom} ${5:width} ${6:height}}] ...",
+            "\t);"
+        ],
+        "description": "uicontrol checkbox"
+    },
+
+    "uiEdit" : {
+        "prefix": "uiEdit",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'edit', ...",
+            "\t'String', '${1:editbox text}', ...",
+            "\t'Position', [${2:${3:left} ${4:bottom} ${5:width} ${6:height}}] ...",
+            "\t'HorizontalAlignment','${7|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol editbox"
+    },
+
+    "uiEditMultiline" : {
+        "prefix": "uiEditMultiline",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'edit', ...",
+            "\t'Max', 2, ...",
+            "\t'String', {${1:'row 1','row2','row3'}}, ...",
+            "\t'Position', [${2:${3:left} ${4:bottom} ${5:width} ${6:height}}], ...",
+            "\t'HorizontalAlignment','${7|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol multi-line editbox"
+    },
+
+    "uiList" : {
+        "prefix": "uiList",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'list', ...",
+            "\t'String', {${1:'item 1','item 2','item 3'}}, ...",
+            "\t'Value', ${2:2}, ...",
+            "\t'Position', [${3:${4:left} ${5:bottom} ${6:width} ${7:height}}], ...",
+            "\t'HorizontalAlignment','${8|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol list"
+    },
+
+    "uiListMultiselect" : {
+        "prefix": "uiListMultiselect",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'list', ...",
+            "\t'Max', 2, ...",
+            "\t'String', {${1:'item 1','item 2','item 3'}}, ...",
+            "\t'Value', [${2:1 3}], ...",
+            "\t'Position', [${3:${4:left} ${5:bottom} ${6:width} ${7:height}}], ...",
+            "\t'HorizontalAlignment','${8|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol multi-select list"
+    },
+
+    "uiPopup" : {
+        "prefix": "uiPopup",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'popup', ...",
+            "\t'String', {${1:'item 1','item 2','item 3'}}, ...",
+            "\t'Value', ${2:2}, ...",
+            "\t'Position', [${3:${4:left} ${5:bottom} ${6:width} ${7:height}}], ...",
+            "\t'HorizontalAlignment','${8|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol pop-up menu"
+    },
+
+    "uiButton" : {
+        "prefix": "uiButton",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'pushbutton', ...",
+            "\t'String', '${1:OK}', ...",
+            "\t'Position', [${2:${3:left} ${4:bottom} ${5:width} ${6:height}}], ...",
+            "\t'Callback',${7:@btnCallback}, ...",
+            "\t'HorizontalAlignment','${8|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol button"
+    },
+
+    "uiText" : {
+        "prefix": "uiText",
+        "body": [
+            "uicontrol( ...",
+            "\t'Style', 'text', ...",
+            "\t'String', '${1:Display text}', ...",
+            "\t'Position', [${2:${3:left} ${4:bottom} ${5:width} ${6:height}}], ...",
+            "\t'HorizontalAlignment','${7|left,center,right|}' ...",
+            "\t);"
+        ],
+        "description": "uicontrol static text"
+    },
+
+    "uiImage" : {
+        "prefix": "uiImage",
+        "body": [
+            "[img,map] = imread('${1:bitmap.png}');",
+            "axes( ...",
+            "\t'Units', 'pixels', ...",
+            "\t'Position', [${2:left} ${3:bottom} size(img)] ...",
+            "\t);",
+            "imshow(img,map);"
+        ],
+        "description": "ui diplay image"
+    }
+
+}    

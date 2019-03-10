@@ -1,0 +1,353 @@
+{
+
+	"fun": {
+		"prefix": "fun",
+		"body": [
+			"function ${1:${2:out} = }${3:myFun}(${4:in})",
+			"% ${3/(.*)/${1:/upcase}/} ${5:description}",
+			"$0",
+			"end"
+		],
+		"description": "minimalistic function declaration"
+    },
+    
+	"function": {
+		"prefix": "function",
+		"body": [
+			"function ${1:[${2:out1,out2}]} = ${3:myFun}(${4:in1,in2})",
+			"% ${3/(.*)/${1:/upcase}/} ${5:description}",
+			"%",
+			"% Syntax:",
+			"%\t$1 = $3($4)",
+			"%",			
+			"% Inputs:",
+			"${4/(\\w+),?/%\t$1 - \n/g}%",
+			"% Outputs:",
+			"${1/\\[?\\s*(\\w*)\\s*[,\\]]?/%\t$1 - \n/g}%",
+			"% Example:",
+			"%\t",			
+			"% See also:",
+            "%\t",			
+			"$0",
+			"end"
+		],
+		"description": "function declaration"
+    },
+    
+    "forij" : {
+        "prefix" : "forij",
+        "body" : [
+            "for i = ${1:1 : ${2:m}}",
+            "\tfor j = ${3:1 : ${4:n}}",
+            "\t\t$0",
+            "\tend",
+            "end"
+        ],
+        "description": "double for-loop"
+    },
+
+    "forijk" : {
+        "prefix" : "forijk",
+        "body" : [
+            "for i = ${1:1 : ${2:m}}",
+            "\tfor j = ${3:1 : ${4:n}}",
+            "\t\tfor k = ${5:1 : ${6:p}}",
+            "\t\t\t$0",
+            "\t\tend",
+            "\tend",
+            "end"
+        ],
+        "description": "triple for-loop"
+    },
+
+    "for1" : {
+        "prefix" : "for1",
+        "body" : [
+            "for i = 1 : size(${1:X},1)",
+            "\t${2:${1/.*/${0:/downcase}/}} = $1(i);",
+            "\t$0",
+            "end"
+        ],
+        "description": "for-loop over a vector"
+    },
+
+    "for2" : {
+        "prefix" : "for2",
+        "body" : [
+            "for i = 1 : size(${1:X},1)",
+            "\tfor j = 1 : size($1,2)",
+            "\t\t${2:${1/.*/${0:/downcase}/}} = $1(i,j);",
+            "\t\t$0",
+            "\tend",
+            "end"
+        ],
+        "description": "for-loop over a matrix"
+    },
+
+    "for3" : {
+        "prefix" : "for3",
+        "body" : [
+            "for i = 1 : size(${1:X},1)",
+            "\tfor j = 1 : size($1,2)",
+            "\t\tfor k = 1 : size($1,3)",
+            "\t\t\t${2:${1/.*/${0:/downcase}/}} = $1(i,j,k);",
+            "\t\t\t$0",
+            "\t\tend",    
+            "\tend",
+            "end"
+        ],
+        "description": "for-loop over a 3D matrix"
+    },
+
+    "switch" : {
+        "prefix" : "switch",
+        "body" : [
+            "switch ${1:expression}",
+            "\tcase ${2:expression}",
+            "\t\t$0",
+            "\tcase ${3:expression}",
+            "\t\t",
+            "\totherwise",
+            "\t\t",
+            "end"
+        ],        
+        "description": "switch statement"
+    },
+
+	"classdef": {
+		"prefix": "classdef",
+		"body": [
+			"classdef ${1:MyClass}${2: < ${3:handle}}",
+			"% ${1/(.*)/${1:/upcase}/} - ${4:Description}",
+            "%",
+            "properties",
+            "\t${5:prop1}",
+            "end",
+            "",
+            "methods",
+            "\tfunction obj = $1()",
+            "\t% $1 constructor",
+            "\t\t$0",
+            "\tend",
+            "end",
+            "",
+			"end"
+		],
+		"description": "class declaration with a constructor"
+    },    
+    
+	"properties": {
+		"prefix": "properties",
+		"body": [
+            "properties(GetAccess = ${1|public,protected,private|}, SetAccess = ${2|public,protected,private|})",
+            "\t$0",
+            "end"
+		],
+		"description": "class properties declaration environment"
+    },            
+
+	"properties_dependent": {
+		"prefix": "properties_dependent",
+		"body": [
+			"properties( Dependent )",
+			"${1:    prop1\n    prop2}",
+			"end",
+			"",
+            "methods",
+            "\n${1/\\s*(.+)\\s*/\tfunction set.$1(obj,in)\n\t\tobj.$1 = in;\n\tend\n\n\tfunction out = get.$1(obj)\n\t\tout = obj.$1;\n\tend\n\n/g}end"
+		],
+		"description": "handle class dependent properties with set/get methods"
+    },
+    
+	"property": {
+		"prefix": "property",
+		"body": [
+			"${1:propName}(${2:dim1,dim2}) ${3:ClassName} {${4|mustBeReal,mustBeInteger,mustBePositive,mustBe, |}} = ${5:defaultValue}"
+		],
+		"description": "full property declaration"
+	},    
+
+	"methods": {
+		"prefix": "methods",
+		"body": [
+            "methods(Access = ${1|public,protected,private|})",
+            "\t$0",
+            "end"
+		],
+		"description": "class methods declaration environment"
+    },  
+    
+	"method": {
+		"prefix": "method",
+		"body": [
+			"function ${1:[${2:out1,out2}]} = ${3:myMethod}(obj,${4:in1,in2})",
+			"% ${3/(.*)/${1:/upcase}/} ${5:description}",
+			"%",
+			"% Syntax:",
+			"%\t$1 = $3($4)",
+			"%",			
+			"% Inputs:",
+			"${4/(\\w+),?/%\t$1 - \n/g}%",
+			"% Outputs:",
+			"${1/\\[?\\s*(\\w*)\\s*[,\\]]?/%\t$1 - \n/g}%",
+			"$0",
+			"end"
+		],
+		"description": "method declaration"
+    },    
+
+    "grid2D" : {
+        "prefix" : "grid2D",
+        "body" : [
+            "[${1:X},${2:Y}] = meshgrid( ...",
+            "\tlinspace(${3:-10},${4:${3/.*/${strAbs($0)}/}},${5:100}), ...",
+            "\tlinspace(${6:$3},${7:$4},${8:$5}) );"
+        ],
+        "description": "2D meshgrid"
+    },    
+
+    "grid3D" : {
+        "prefix" : "grid3D",
+        "body" : [
+            "[${1:X},${2:Y},${3:Z}] = meshgrid( ...",
+            "\tlinspace(${4:-10},${5:${4/.*/${strAbs($0)}/}},${6:100}), ...",
+            "\tlinspace(${7:$4},${8:$5},${9:$6}), ...",
+            "\tlinspace(${10:$7},${11:$8},${12:$9}) );"
+        ],
+        "description": "3D meshgrid"
+    },        
+
+    "grid2Dsym" : {
+        "prefix" : "grid2Dsym",
+        "body" : [
+            "rng = ${1:10}; % symetric grid range",
+            "ngr = ${2:100}; % number of points in each dimension",
+            "[X,Y] = meshgrid( ...",
+            "\tlinspace(-rng,rng,ngr), ...",
+            "\tlinspace(-rng,rng,ngr) );"
+        ],
+        "description": "symetric 2D meshgrid"
+    },
+
+    "grid3Dsym" : {
+        "prefix" : "grid3sym",
+        "body" : [
+            "rng = ${1:10}; %symetric grid range",
+            "ngr = ${2:100}; % number of points in each dimension",
+            "[X,Y,Z] = meshgrid( ...",
+            "\tlinspace(-rng,rng,ngr), ...",
+            "\tlinspace(-rng,rng,ngr), ...",
+            "\tlinspace(-rng,rng,ngr) );"
+        ],
+        "description": "symetric 3D meshgrid"
+    },    
+
+    "evalGrid2D" : {
+        "prefix" : "evalGrid2D",
+        "body" : [
+            "${3///} = zeros(size(${1///}));",
+            "for i = 1 : size(${1///},1)",
+            "\tfor j = 1 : size(${1///},2)",
+            "\t\t${4:${1/.*/${lower($0)}/}} = ${1:X}(i,j);",
+            "\t\t${5:${2/.*/${lower($0)}/}} = ${2:Y}(i,j);",
+            "\t\t${3:Z}(i,j) = $0;",
+            "\tend",
+            "end"
+        ],
+        "description": "evaluate on a 2D meshgrid"
+    },    
+
+    "evalGrid3D" : {
+        "prefix" : "evalGrid3D",
+        "body" : [
+            "${4///} = zeros(size(${1///}));",
+            "for i = 1 : size(${1///},1)",
+            "\tfor j = 1 : size(${1///},2)",
+            "\t\tfor k = 1 : size(${1///},3)",
+            "\t\t\t${5:${1/.*/${lower($0)}/}} = ${1:X}(i,j);",
+            "\t\t\t${6:${2/.*/${lower($0)}/}} = ${2:Y}(i,j);",
+            "\t\t\t${7:${3/.*/${lower($0)}/}} = ${3:Z}(i,j);",
+            "\t\t\t${4:M}(i,j,k) = $0;",
+            "\t\tend",
+            "\tend",
+            "end"
+        ],
+        "description": "evaluate on a 3D meshgrid"
+    },    
+
+    "parseInputs" : {
+        "prefix": "parseInputs",
+        "body": [
+            "function opt = parseInputs(arguments)",
+            "\tp = inputParser;",
+            "\t$0",
+            "\tparse(p,arguments{:});",
+            "\topt = p.Results;",
+            "end"
+        ],
+        "description": "function parsing name-value arguments"
+    },
+
+    "parseInputsComplete" : {
+        "prefix": "parseInputsComplete",
+        "body": [
+            "function ${1:fce}(varargin)",
+            "opt = parseInputs(varargin);",
+            "",
+            "end",
+            "",
+            "function opt = parseInputs(arguments)",
+            "\tp = inputParser;",
+            "\t$0",
+            "\tparse(p,arguments{:});",
+            "\topt = p.Results;",
+            "end"
+        ],
+        "description": "function name-value arguments parsing"
+    },
+
+    "parseInputs_double" : {
+        "prefix": "parseInputs_double",
+        "body": [
+            "addParameter(p,'${1:paramName}',${2:defaultValue},@(x)validateattributes(x,{'double'},{'${4|scalar,vector,2d,column,row|}','${5|real,integer,positive,nonnegative,nonzero|}'${6:,'nonempty'}}));\n"
+        ],
+        "description": "add double argument"
+    },
+
+    "parseInputs_logical" : {
+        "prefix": "parseInputs_logical",
+        "body": [
+            "addParameter(p,'${1:paramName}',${2:defaultValue},@(x)validateattributes(x,{'logical'},{'scalar'}));\n"
+        ],
+        "description": "add double argument"
+    },
+
+    "parseInputs_char" : {
+        "prefix": "parseInputs_char",
+        "body": [
+            "addParameter(p,'${1:paramName}','${2:defaultValue}',@(x)validateattributes(x,{'char'},{${3:'nonempty'}}));\n"
+        ],
+        "description": "add double argument"
+    },
+
+    "parseInputs_enum" : {
+        "prefix": "parseInputs_enum",
+        "body": [
+            "addParameter(p,'${1:paramName}','${2:defaultValue}',@(x)any(validatestring(x,{${3:'on','off'}})));\n"
+        ],
+        "description": "add enumeration argument"
+    },
+
+    "struct" : {
+        "prefix": "struct",
+        "body": [
+            "${1:varName} = struct( ...",
+            "\t'${2:fieldName1}', ${3:value1}, ...",
+            "\t'${4:fieldName2}', ${5:value2}, ...",
+            "\t'${6:fieldName3}', ${7:value3} ...",
+            ");"
+        ],
+        "description": "structure"
+    }
+
+}    

@@ -1,0 +1,30 @@
+{  
+
+    "--" : {
+        "prefix": "--",
+        "body": [
+            "${TM_CURRENT_LINE/\\s*(.*)/${fillEditorLineEndByCharacter($1,'-')}/e}",
+            "$0"
+        ],
+        "description": "fill line end by '-'"
+    },
+
+    "==" : {
+        "prefix": "==",
+        "body": [
+            "${TM_CURRENT_LINE/\\s*(.*)/${fillEditorLineEndByCharacter($1,'=')}/e}",
+            "$0"
+        ],
+        "description": "fill line end by '='"
+    },
+
+    "**" : {
+        "prefix": "**",
+        "body": [
+            "${TM_CURRENT_LINE/\\s*(.*)/${fillEditorLineEndByCharacter($1,'*')}/e}",
+            "$0"
+        ],
+        "description": "fill line end by '*'"
+    }
+
+}

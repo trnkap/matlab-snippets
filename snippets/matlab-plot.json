@@ -1,0 +1,139 @@
+{
+
+    "plot" : {
+        "prefix" : "plot",
+        "body" : [
+            "plot(${1:x},${2:y},'LineWidth',${3:1},'LineStyle','${4:-}','MarkerSize',${5:10});"
+        ],
+        "description": "plot with options"
+    },   
+
+    "plotFun" : {
+        "prefix" : "plotFun",
+        "body" : [
+            "fh = ${1:@(x)sin(pi*x)./(pi*x)};",
+            "fplot(fh,[${2:-10} ${3:${2/.*/${strAbs($0)}/}}],'-','LineWidth',1,'MeshDensity',23);",
+            "title(${4:regexp(func2str(fh),'(?<=@\\(.*?\\)).*','match','once')});",
+            "xlabel(${5:regexp(func2str(fh),'(?<=\\().*?(?=\\))','match','once')});",
+            "grid on;"
+        ],
+        "description": "plot function"
+    },           
+
+    "plotFunSurf" : {
+        "prefix" : "plotFunSurf",
+        "body" : [
+            "fh = ${1:@(x,y)sin(pi*sqrt(x.^2+y.^2))./(pi*sqrt(x.^2+y.^2))};",
+            "fsurf(fh,[${2:-5} ${3:${2/.*/${strAbs($0)}/}} ${4:$2} ${5:$3}],'MeshDensity',35,'ShowContours','${6|off,on|}');",
+            "title( regexp(func2str(fh),'(?<=@\\(.*?\\)).*','match','once'));",
+            "xlabel(regexp(func2str(fh),'(?<=\\().*?(?=,)','match','once'));",
+            "ylabel(regexp(func2str(fh),'(?<=,).*?(?=\\))','match','once'));",
+            "grid on;"            
+        ],
+        "description": "plot 3D function surface"
+    },            
+    
+    "plotFunContour" : {
+        "prefix" : "plotFunContour",
+        "body" : [
+            "fh = ${1:@(x,y)exp(-(x/3).^2-(y/3).^2)+exp(-(x+2).^2-(y+2).^2)};",
+            "fcontour(fh,[${2:-5} ${3:${2/.*/${strAbs($0)}/}} ${4:$2} ${5:$3}],'MeshDensity',71,'Fill','${6|off,on|}');",
+            "title( regexp(func2str(fh),'(?<=@\\(.*?\\)).*','match','once'));",
+            "xlabel(regexp(func2str(fh),'(?<=\\().*?(?=,)','match','once'));",
+            "ylabel(regexp(func2str(fh),'(?<=,).*?(?=\\))','match','once'));",
+            "grid on;"            
+        ],
+        "description": "plot 3D function contour"
+    },                
+
+    "plotGridContourf" : {
+        "prefix" : "plotGridContourf",
+        "body" : [
+            "[~,h] = contourf(${1:X},${2:Y},${3:Z});",
+            "set(h,'ShowText','on');",
+            "set(h,'TextStep',get(h,'LevelStep')*2);",
+            "set(h,'LineWidth',2);",
+            "colormap( (3*colormap+1)/4 );"
+        ],
+        "description": "grid contour and gradient plot"
+    },    
+
+
+    "plotGridContourGradient" : {
+        "prefix" : "plotGridContourGradient",
+        "body" : [
+            "contour(${1:X},${2:Y},${3:Z}); hold on;",
+            "[D$1,D$2] = gradient($3);",
+            "quiver($1,$2,D$1,D$2); hold off;"
+        ],
+        "description": "grid contour and gradient plot"
+    },    
+
+    "plotGridMeshCurvature" : {
+        "prefix" : "plotGridMeshCurvature",
+        "body" : [
+            "mesh(${1:X},${2:Y},${3:Z},del2(${3:Z}));"
+        ],
+        "description": "grid mesh with curvature colorization"
+    },
+
+    "evalGridSurf" : {
+        "prefix" : "evalGridSurf",
+        "body" : [
+            "fh = ${1:@(x,y)sin(pi*sqrt(x.^2+y.^2))./(pi*sqrt(x.^2+y.^2))};",
+            "rng = ${2:5}; % symetric grid range",
+            "ngr = ${3:100}; % number of points in each dimension",
+            "[${4:X},${5:Y}] = meshgrid( ...",
+            "\tlinspace(-rng,rng,ngr), ...",
+            "\tlinspace(-rng,rng,ngr) );",
+            "$6 = zeros(size($4));",
+            "for i = 1 : size($4,1)",
+            "\tfor j = 1 : size($4,2)",
+            "\t\t${6:Z}(i,j) = fh( $4(i,j), $5(i,j) );",
+            "\tend",
+            "end",
+			"surf($4,$5,$6);",
+            "xlabel('x');",
+            "ylabel('y');"
+        ],
+        "description": "grid evaluation and surface plot"
+    },
+
+    "evalGridContourf" : {
+        "prefix" : "evalGridContourf",
+        "body" : [
+            "fh = ${1:@(x,y)sin(pi*sqrt(x.^2+y.^2))./(pi*sqrt(x.^2+y.^2))};",
+            "rng = ${2:5}; % symetric grid range",
+            "ngr = ${3:100}; % number of points in each dimension",
+            "[${4:X},${5:Y}] = meshgrid( ...",
+            "\tlinspace(-rng,rng,ngr), ...",
+            "\tlinspace(-rng,rng,ngr) );",
+            "$6 = zeros(size($4));",
+            "for i = 1 : size($4,1)",
+            "\tfor j = 1 : size($4,2)",
+            "\t\t${6:Z}(i,j) = fh( $4(i,j), $5(i,j) );",
+            "\tend",
+            "end",
+            "[~,h] = contourf($4,$5,$6);",
+            "set(h,'ShowText','on');",
+            "set(h,'TextStep',get(h,'LevelStep')*2);",
+            "set(h,'LineWidth',2);",
+            "colormap( (3*colormap+1)/4 );",
+            "xlabel('x');",
+            "ylabel('y');"
+        ],
+        "description": "grid evaluation and contourf plot"
+    },
+    
+    "plotAnnotation" : {
+        "prefix" : "plotAnnotation",
+        "body" : [
+            "title('${1:Plot Title}');",
+            "xlabel('${2:x axis label [units]}');",
+            "ylabel('${3:y axis label [units]}');",
+            "grid ${4|on,off|};"
+        ],
+        "description": "plot annotation"
+    }    
+
+}    

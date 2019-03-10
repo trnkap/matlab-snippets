@@ -1,0 +1,74 @@
+{
+   	"align%": {
+		"prefix": "align%",
+		"body": [
+			"${TM_SELECTED_TEXT/.*/${alignCharacter($0,'%')}/s}"
+		],
+		"description": "align comments"
+	},
+
+	"align=": {
+		"prefix": "align=",
+		"body": [
+			"${TM_SELECTED_TEXT/.*/${alignCharacter($0,'=')}/s}"
+		],
+		"description": "align equality symbols"
+	},
+
+	"align=%": {
+		"prefix": "align=%",
+		"body": [
+			"${TM_SELECTED_TEXT/.*/${alignCharacter(alignCharacter($0,'='),'%')}/s}"
+		],
+		"description": "align equality symbols and comments"
+    },
+
+	"remSpace": {
+		"prefix": "remSpace",
+		"body": [
+			"${TM_SELECTED_TEXT/[ ]*//g}"
+		],
+		"description": "removes space characters"
+    },
+
+	"remDuplicateSpace": {
+		"prefix": "remDuplicateSpace",
+		"body": [
+			"${TM_SELECTED_TEXT/[ ]*/ /g}"
+		],
+		"description": "removes duplicate space characters"
+    },
+
+	"singleSpace": {
+		"prefix": "singleSpace( a, b, c )",
+		"body": [
+			"${TM_SELECTED_TEXT/.*/${singleSpace($0)}/s}"
+		],
+		"description": "Single ' ' after '(',',' and before')'"
+    },
+
+	"singleSpace(a, b, c)": {
+		"prefix": "singleSpace(a, b, c)",
+		"body": [
+			"${TM_SELECTED_TEXT/.*/${singleSpace($0,true)}/s}"
+		],
+		"description": "Single ' ' after ',' no space after '(' and before ')'"
+		},
+
+		"upperCase": {
+			"prefix": "upperCase",
+			"body": [
+				"${TM_SELECTED_TEXT/.*/${upper($0)}/s}"
+			],
+			"description": "convert to upper case"
+			},
+
+			"lowerCase": {
+				"prefix": "lowerCase",
+				"body": [
+					"${TM_SELECTED_TEXT/.*/${lower($0)}/s}"
+				],
+				"description": "convert to lower case"
+				}				
+
+}
