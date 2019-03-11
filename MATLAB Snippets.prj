@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3044567993" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3340219067" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
     <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
     <param.email>pavel@trnka.name</param.email>
@@ -81,10 +81,12 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
       <file>${PROJECT_ROOT}\utils\editor\getWordAtCaretPosition.m</file>
       <file>${PROJECT_ROOT}\utils\findjobj_fast.m</file>
       <file>${PROJECT_ROOT}\utils\findMatchingClosingBracket.m</file>
+      <file>${PROJECT_ROOT}\utils\getAppID.m</file>
       <file>${PROJECT_ROOT}\utils\regexp\decomposeRegexpPlaceholder.m</file>
       <file>${PROJECT_ROOT}\utils\regexp\textMate2regexprep.m</file>
     </fileset.depfun>
     <fileset.resources>
+      <file>${PROJECT_ROOT}\favoriteCallback.txt</file>
       <file>${PROJECT_ROOT}\graphics</file>
       <file>${PROJECT_ROOT}\insertSnippetOptions.mat</file>
       <file>${PROJECT_ROOT}\matlabSnippets.html</file>

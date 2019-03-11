@@ -1,0 +1,26 @@
+% MATLAB Snippet APP - favorite command callback for a manual installation
+% Intended to be copy & pasted and not to be called directly (intentional txt extension).
+
+if exist('insertSnippet','file')
+    insertSnippet();
+else
+    appName = 'MATLAB Snippets';
+    id = [];
+    appinfo = matlab.apputil.getInstalledAppInfo;
+    if ~isempty(appinfo)
+        ind = find(strcmp({appinfo.name},appName));
+        if length(ind)==1
+            id = appinfo(ind).id;
+        else
+            % --- multiple matches - return the last ID from a sorted list
+            ID = {appinfo(ind).id};
+            ID = sort(ID);
+            id = ID(end);
+        end
+    end
+    if isempty(id)
+        f = warndlg([ 'Cannot find the App named "' appName '". Please (re)install it.' ]);
+    else
+        matlab.apputil.run(ID);
+    end    
+end
