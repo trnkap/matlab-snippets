@@ -6,7 +6,7 @@ manualInstallationRequest = ...
     'Please add it manually with a callback copy & pasted from the file "favoriteCallback.txt".';
 
 if verLessThan('matlab','9.3')
-    f = warndlg([ 'The quick lunch icon can be automatically added only in Matlab 2017b and later. ' manualInstallationRequest]);
+    f = warndlg([ 'The quick lunch icon can be automatically added only in Matlab 2017b and later. ' manualInstallationRequest ]);
     uiwait(f);
     return
 end
@@ -26,7 +26,7 @@ code = { ...
     'if exist(''insertSnippet'',''file'')'
     '    insertSnippet();'
     'else'
-    ['    matlab.apputil.run(''' appID ''')'];
+    ['    matlab.apputil.run(''' appID ''');'];
     'end'
     };
 code = strjoin(code,sprintf('\n')); %#ok<SPRINTFN>
@@ -44,7 +44,7 @@ try
     fc.addCommand(newFavoriteCommand);
     %msgbox('Quick lunch icon successfully added. Try to trigger it by ALT+1.','Matlab Snippets');
 catch
-    f = warndlg('Adding Quick lunch icon failed. Please add it manually with a callback "insertSnippet();".');
+    f = warndlg(['Adding the quick lunch icon failed. ' manualInstallationRequest]);
     uiwait(f);
 end
 end

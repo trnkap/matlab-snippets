@@ -21,6 +21,6 @@ else
     if isempty(id)
         f = warndlg([ 'Cannot find the App named "' appName '". Please (re)install it.' ]);
     else
-        matlab.apputil.run(ID);
+        matlab.apputil.run(id);
     end    
 end

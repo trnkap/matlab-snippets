@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="3340219067" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4028405750" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
     <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
     <param.email>pavel@trnka.name</param.email>
