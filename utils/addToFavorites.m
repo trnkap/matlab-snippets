@@ -2,8 +2,9 @@ function addToFavorites
 % Add "insertSnippet();" to the favorites commands and adds it to the Quick
 % Access Toolbar so it can be triggered by a keyboard shortcut (e.g. ALT+1)
 
-if verLessThan('matlab','9.1')
-    warndlg('Quick lunch icon can be automatically added only in Matlab 2016b and later. Please do it manually.');
+if verLessThan('matlab','9.3')
+    f = warndlg('The quick lunch icon can be automatically added only in Matlab 2017b and later. Please add it manually with a callback "insertSnippet();".');
+    uiwait(f);
     return
 end
 
@@ -24,6 +25,7 @@ try
     fc.addCommand(newFavoriteCommand);
     %msgbox('Quick lunch icon successfully added. Try to trigger it by ALT+1.','Matlab Snippets');
 catch
-    warndlg('Adding Quick lunch icon failed. Please do it manually.');
+    f = warndlg('Adding Quick lunch icon failed. Please add it manually with a callback "insertSnippet();".');
+    uiwait(f);
 end
 end

@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1388214899" file="C:\work\repo\pco\toolboxes\snippets\MATLAB Snippets.prj" location="C:\work\repo\pco\toolboxes\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3044567993" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
     <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
     <param.email>pavel@trnka.name</param.email>
@@ -25,7 +25,7 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\work\repo\pco\toolboxes\snippets</param.output>
+    <param.output>C:\work\repo\github\snippets</param.output>
     <param.guid>8bfd37e6-10e5-4889-84a4-6c68df10c1c1</param.guid>
     <unset>
       <param.company />
@@ -93,7 +93,7 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\work\repo\pco\toolboxes" name="snippets" optional="false">C:\work\repo\pco\toolboxes\snippets</file>
+      <file location="C:\work\repo\github" name="snippets" optional="false">C:\work\repo\github\snippets</file>
     </build-deliverables>
     <workflow />
     <matlab>

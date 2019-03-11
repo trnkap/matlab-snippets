@@ -86,7 +86,7 @@ web(url,'-browser')
 end
 
 function fileExchangeCallback(~,~)
-url = 'https://www.mathworks.com/matlabcentral/fileexchange/';
+url = 'https://www.mathworks.com/matlabcentral/fileexchange/70524-matlab-snippets';
 web(url,'-browser')
 end
 
