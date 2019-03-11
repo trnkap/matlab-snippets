@@ -2,7 +2,7 @@
 MATLAB Snippets App adds code snippets to the Matlab editor. Snippets definition uses syntax compatible with the [Visual Studio Code](https://code.visualstudio.com/docs/editor/userdefinedsnippets) and with the [Textmate 1.x](https://macromates.com/manual/en/snippets). The integration to the Matlab editor is loose, the snippets are inserted by a keyboard shortcut (usually **ALT+1**).
 
 ## Installation
-The app can be installed by double-clicking on the app package "MATLAB Snippets.mlappinstall". Running the app from the "APPS" ribbon for the first time offers you to create a shortcut on the Quick Access Toolbar.
+Download the app package [MATLAB Snippets.mlappinstall](https://github.com/trnkap/matlab-snippets/raw/master/MATLAB%20Snippets.mlappinstall) and run it on your computer or install it using the "Install App" button on the Matlab "APPS" ribon. The app icon "MATLAB Snippets" will appear on the "APPS" ribon. Clicking on it for the first time offers you to create a shortcut on the Quick Access Toolbar.
 
 ![](html/add_to_favorites.png)
 
