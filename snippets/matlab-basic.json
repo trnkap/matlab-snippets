@@ -21,9 +21,9 @@
 			"%\t$1 = $3($4)",
 			"%",			
 			"% Inputs:",
-			"${4/(\\w+),?/%\t$1 - \n/g}%",
+			"${4/\\s*(\\w+)\\s*,?\\s*/%\t$1 - \n/g}%",
 			"% Outputs:",
-			"${1/\\[?\\s*(\\w*)\\s*[,\\]]?/%\t$1 - \n/g}%",
+			"${1/\\s*\\[?\\s*(\\w*)\\s*[,\\]]?\\s*/%\t$1 - \n/g}%",
 			"% Example:",
 			"%\t",			
 			"% See also:",
@@ -63,7 +63,7 @@
     "for1" : {
         "prefix" : "for1",
         "body" : [
-            "for i = 1 : size(${1:X},1)",
+            "for i = 1 : length(${1:X})",
             "\t${2:${1/.*/${0:/downcase}/}} = $1(i);",
             "\t$0",
             "end"
@@ -319,7 +319,7 @@
         "body": [
             "addParameter(p,'${1:paramName}',${2:defaultValue},@(x)validateattributes(x,{'logical'},{'scalar'}));\n"
         ],
-        "description": "add double argument"
+        "description": "add logical argument"
     },
 
     "parseInputs_char" : {
@@ -327,7 +327,7 @@
         "body": [
             "addParameter(p,'${1:paramName}','${2:defaultValue}',@(x)validateattributes(x,{'char'},{${3:'nonempty'}}));\n"
         ],
-        "description": "add double argument"
+        "description": "add char argument"
     },
 
     "parseInputs_enum" : {

@@ -128,7 +128,9 @@ initializeGUI;
             h.EditBox.FontName = fontName;
         end
         pxFontSize = fnt.getSize;
-        ptFontSize = pxFontSize * 72 / get(0,'ScreenPixelsPerInch');
+        ScreenPixelsPerInch = java.awt.Toolkit.getDefaultToolkit().getScreenResolution(); % unscaled
+        %ScreenPixelsPerInch = get(0,'ScreenPixelsPerInch'); % scaled
+        ptFontSize = pxFontSize * 72 / ScreenPixelsPerInch; 
         h.ListBox.FontSize = ptFontSize;
         h.EditBox.FontSize = ptFontSize;        
         % --- Unify editbox and listbox colors with the CodePane

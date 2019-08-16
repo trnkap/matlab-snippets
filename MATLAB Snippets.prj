@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4028405750" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4086213750" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
     <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
     <param.email>pavel@trnka.name</param.email>
@@ -25,7 +25,7 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     <param.products.id />
     <param.products.version />
     <param.platforms />
-    <param.output>C:\work\repo\github\snippets</param.output>
+    <param.output>${PROJECT_ROOT}</param.output>
     <param.guid>8bfd37e6-10e5-4889-84a4-6c68df10c1c1</param.guid>
     <unset>
       <param.company />
@@ -99,8 +99,21 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2018b</root>
-      <toolboxes />
+      <root>C:\Program Files\MATLAB\R2019a</root>
+      <toolboxes>
+        <toolbox name="matlabcoder" />
+        <toolbox name="embeddedcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
     </matlab>
     <platform>
       <unix>false</unix>
