@@ -144,8 +144,15 @@ classdef Array < Snippet.Element
                 obj.array, 'UniformOutput', false );
             for i = 1 : length(tabstopObjects)
                 if ~isempty(tabstopObjects{i})                    
-                    tabstopObject = tabstopObjects{i};
-                    return
+                    % return either the first object or the first with the 
+                    % non-empty "value" property
+                    if isempty(tabstopObject)
+                        tabstopObject = tabstopObjects{i};
+                    end
+                    hasValue = isprop(tabstopObject,'value') && ~isempty(tabstopObject.value);
+                    if hasValue
+                        return
+                    end
                 end
             end
         end  

@@ -1,0 +1,110 @@
+{
+
+	"example01": {
+		"prefix": "example01",
+		"body": [
+			"functionA();",
+            "for i = 1 : n",
+			"\tfunctionB();",
+			"end\n"
+		],
+		"description": "plain multi-line snippet"
+    },
+
+	"example02": {
+		"prefix": "example02",
+		"body": [
+			"% Tabstops specify cursor positions for snippet customization:",
+            "a = $1; b = $2; c = $3;",
+            "% The sequence can be arbitrary:",
+            "e = $6; f = $5; g = $4;",
+            "% The tabstop number zero determines cursor position after",
+            "% inserting the snippet into the editor:",
+            "$0"
+		],
+		"description": "tabstops"
+    },
+
+	"example03": {
+		"prefix": "example03",
+		"body": [
+			"% Placeholders specify default values to the tabstops:",
+            "a = ${1:123}; b = ${2:456}; c = ${3:678};"
+		],
+		"description": "tabstop placeholders"
+    },
+
+	"example04": {
+		"prefix": "example04",
+		"body": [
+			"% Tabstop value can be mirrored to multiple locations by using",
+            "% the same tabstop number:",
+            "a = ${1:123}; a1 = $1; a2 = $1;",
+            "b = ${2:456}; b1 = $2; b2 = $2;"
+		],
+		"description": "tabstop mirroring"
+    },
+
+	"example05": {
+		"prefix": "example05",
+		"body": [
+			"% Placeholders can include nested tabstops. You can then either edit",
+            "% the individual nested tabstops or you can overwrite the hosting",
+            "% placeholder:",
+            "a = A(${1:${2:i1}:${3:i2}});",
+            "b = B(${6:${4:i1}:${5:i2}});",
+            "% Notice that depending on the tabstop numbering you either start",
+            "% by editing the hosting tabstop or by editing the individual nested",
+            "% tabstops."
+		],
+		"description": "nested placeholders"
+    },
+
+	"example06": {
+		"prefix": "example06",
+		"body": [
+			"% Placeholders can have multiple choices that are selected",
+            "% by up/down arrows:",
+            "opt.display = '${1|on,off|}';"
+		],
+		"description": "placeholder with choices"
+    },
+
+	"example07": {
+		"prefix": "example07",
+		"body": [
+			"% Different variables can be automatically inserted, few examples:",
+            "% Current time   = $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+            "% Current date   = $CURRENT_MONTH_NAME $CURRENT_DATE, $CURRENT_YEAR",
+            "% Current file   = $TM_FILENAME",
+            "% Matlab version = $MATLAB_VERSION",
+            "% User name      = $TM_USERNAME"
+		],
+		"description": "variables"
+    },
+
+	"example08": {
+		"prefix": "example08",
+		"body": [
+            "% Placeholders can be transformed by regular expressions:",
+            "function ${1:myFun}(${2:in1,in2})",
+            "% ${1/(.*)/${1:/upcase}/} function description",
+            "% Input arguments:",
+            "${2/\\s*(\\w+)\\s*,?\\s*/%\t$1 - \n/g}%"
+		],
+		"description": "placeholder transformations"
+    },
+
+	"example09": {
+		"prefix": "example09",
+		"body": [
+            "% Variables can be transformed by regular expressions:",
+            "% User name              = $TM_USERNAME",
+            "% User name (upper case) = ${TM_USERNAME/(.*)/${1:/upcase}/}",
+            "% User name (lower case) = ${TM_USERNAME/(.*)/${1:/downcase}/}",
+            "% User name (capitalize) = ${TM_USERNAME/(.*)/${1:/capitalize}/}"
+		],
+		"description": "variable transformations"
+    }
+
+}

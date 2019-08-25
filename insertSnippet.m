@@ -484,7 +484,7 @@ initializeGUI;
 
 
     function updateCodePane()
-        % --- Previewes the currently selected snippet in the code pane
+        % --- Previews the currently selected snippet in the code pane
         iSnippet = getSelectedSnippetIndex();
         codePaneText = '';
         if ~isempty(iSnippet)

@@ -124,7 +124,7 @@ classdef Tabstop < Snippet.Element
         
         
         function tabstopObject = getTabstopObject(obj,number)
-            if obj.number == number && ~isempty(obj.value)
+            if obj.number == number % && ~isempty(obj.value)
                 tabstopObject = obj;
             elseif isa(obj.value,'Snippet.Element')
                 % --- Nested tabstops with lower "priority"

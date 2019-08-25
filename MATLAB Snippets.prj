@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4086213750" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="4215706648" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
     <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
     <param.email>pavel@trnka.name</param.email>
@@ -69,11 +69,6 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
       <file>${PROJECT_ROOT}\+Snippet\Snippet.m</file>
       <file>${PROJECT_ROOT}\dialogs\insertSnippetAboutDlg.m</file>
       <file>${PROJECT_ROOT}\dialogs\insertSnippetOptionsDlg.m</file>
-      <file>${PROJECT_ROOT}\jsonlab-1.5\jsonopt.m</file>
-      <file>${PROJECT_ROOT}\jsonlab-1.5\loadjson.m</file>
-      <file>${PROJECT_ROOT}\jsonlab-1.5\mergestruct.m</file>
-      <file>${PROJECT_ROOT}\jsonlab-1.5\struct2jdata.m</file>
-      <file>${PROJECT_ROOT}\jsonlab-1.5\varargin2struct.m</file>
       <file>${PROJECT_ROOT}\utils\addToFavorites.m</file>
       <file>${PROJECT_ROOT}\utils\editor\clearWordAtCaretPosion.m</file>
       <file>${PROJECT_ROOT}\utils\editor\getActiveEditor.m</file>
@@ -100,20 +95,7 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     <workflow />
     <matlab>
       <root>C:\Program Files\MATLAB\R2019a</root>
-      <toolboxes>
-        <toolbox name="matlabcoder" />
-        <toolbox name="embeddedcoder" />
-      </toolboxes>
-      <toolbox>
-        <matlabcoder>
-          <enabled>true</enabled>
-        </matlabcoder>
-      </toolbox>
-      <toolbox>
-        <embeddedcoder>
-          <enabled>true</enabled>
-        </embeddedcoder>
-      </toolbox>
+      <toolboxes />
     </matlab>
     <platform>
       <unix>false</unix>
