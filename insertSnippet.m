@@ -13,6 +13,9 @@ windowTag       = 'insertSnippetWindow';
 optionsFileName = 'insertSnippetOptions.mat';
 versionStr      = '1.0';
 
+% --- Temporarily enable hidden handles visibility
+set(0,'ShowHiddenHandles','on');
+
 % --- Search for the hidden App window and show it if it exists ----------------
 if showHiddenWindow(windowTag)
     return
@@ -44,6 +47,9 @@ createFigure();
 % --- Initialize and show the GUI ----------------------------------------------
 initializeGUI;
 
+% --- Restore hidden handles visibility
+set(0,'ShowHiddenHandles','remove');
+
 
 % ==============================================================================
     
@@ -65,6 +71,7 @@ initializeGUI;
             'Name', 'Insert Snippet', ...
             'Tag', windowTag, ...
             'Visible', 'off', ...
+            'HandleVisibility', 'off', ... hide the window to gca, gcf, ...
             'KeyPressFcn', @figureKeyPressFcn, ...
             'DeleteFcn', @figureDeleteFcn, ...
             'SizeChangedFcn', @figureSizeChangedFcn, ...
@@ -103,7 +110,13 @@ initializeGUI;
         codeType = com.mathworks.widgets.text.mcode.MLanguage.M_MIME_TYPE;
         h.CodePane.setContentType(codeType);
         jScrollPane = com.mathworks.mwswing.MJScrollPane(h.CodePane);
+        % ---
+        oldWarn = warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');                                
+        warning('off','MATLAB:ui:javaframe:PropertyToBeRemoved');
+        warning('off','MATLAB:ui:javacomponent:FunctionToBeRemoved');
         [~,h.CodePaneContainer] = javacomponent(jScrollPane,[0 0 0 0],h.Fig);        
+        warning(oldWarn);
+        % ---
         % --- Add code pane to the <TAB> cycle
         h.CodePane.setFocusable(true);
         h.CodePane.putClientProperty('TabCycleParticipant', true);        

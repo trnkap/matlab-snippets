@@ -2,6 +2,7 @@ function jComponent = findjobj_fast(hFig,toolTipText)
 % Based on Yair Altman "findjobj"
 drawnow;  pause(0.02);
 oldWarn = warning('off','MATLAB:HandleGraphics:ObsoletedProperty:JavaFrame');                                
+warning('off','MATLAB:ui:javaframe:PropertyToBeRemoved');
 jframe = get(hFig,'JavaFrame');
 warning(oldWarn);
 jContainer = jframe.getFigurePanelContainer.getComponent(0);

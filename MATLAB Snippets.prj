@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="4215706648" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1803816239" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
     <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
     <param.email>pavel@trnka.name</param.email>
@@ -94,8 +94,15 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2019a</root>
-      <toolboxes />
+      <root>C:\Program Files\MATLAB\R2019b</root>
+      <toolboxes>
+        <toolbox name="neuralnetwork" />
+      </toolboxes>
+      <toolbox>
+        <neuralnetwork>
+          <enabled>true</enabled>
+        </neuralnetwork>
+      </toolbox>
     </matlab>
     <platform>
       <unix>false</unix>
