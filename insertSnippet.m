@@ -18,6 +18,9 @@ set(0,'ShowHiddenHandles','on');
 
 % --- Search for the hidden App window and show it if it exists ----------------
 if showHiddenWindow(windowTag)
+    % --- Restore hidden handles visibility
+    set(0,'ShowHiddenHandles','remove');
+    % ---
     return
 end
 
