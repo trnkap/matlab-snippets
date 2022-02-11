@@ -931,7 +931,11 @@ set(0,'ShowHiddenHandles','remove');
         if ~isempty(activeEditor)
             
             % --- Get tabstop $0 position
-            caretPosition = activeEditor.JavaEditor.getCaretPosition;
+            if verLessThan('matlab', '9.11.0')
+                caretPosition = activeEditor.JavaEditor.getCaretPosition;
+            else
+                caretPosition = matlab.desktop.editor.positionInLineToIndex(activeEditor, activeEditor.Selection(1), activeEditor.Selection(2)) - 1;
+            end
             indCaret = parsedSnippet.getPlaceholderPosition(0);
             if ~isempty(indCaret)
                 indCaret = indCaret(1);
@@ -940,11 +944,20 @@ set(0,'ShowHiddenHandles','remove');
             end
             
             % --- Insert text to the editor
-            activeEditor.JavaEditor.insertTextAtCaret(text);
+            if verLessThan('matlab', '9.11.0')
+                activeEditor.JavaEditor.insertTextAtCaret(text);
+            else
+                activeEditor.insertTextAtPositionInLine(text, activeEditor.Selection(1), activeEditor.Selection(2));
+            end
             
             % --- Move the caret to the $0 tabstop
             if ~isempty(indCaret)
-                activeEditor.JavaEditor.setCaretPosition( caretPosition + indCaret - 1 );
+                if verLessThan('matlab', '9.11.0')
+                    activeEditor.JavaEditor.setCaretPosition( caretPosition + indCaret - 1 );
+                else
+                    [temp_line, temp_position] = matlab.desktop.editor.indexToPositionInLine(activeEditor, caretPosition + 1 + indCaret - 1);
+                    activeEditor.goToPositionInLine(temp_line, temp_position);
+                end
             end
             
         end
