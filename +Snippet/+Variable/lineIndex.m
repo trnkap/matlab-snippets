@@ -3,7 +3,11 @@ function out = lineIndex()
 activeEditor = getActiveEditor();
 if isempty(activeEditor)
     out = '';
-else    
-    out = num2str( activeEditor.JavaEditor.getLineNumber );
+else
+    if verLessThan('matlab', '9.11.0')
+        out = num2str( activeEditor.JavaEditor.getLineNumber );
+    else
+        out = activeEditor.Selection(1) - 1;
+    end
 end
 end

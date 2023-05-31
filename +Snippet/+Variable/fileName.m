@@ -4,6 +4,11 @@ activeEditor = getActiveEditor();
 if isempty(activeEditor)
     out = '';
 else
-    out = char( activeEditor.JavaEditor.getShortName );
+    if verLessThan('matlab', '9.11.0')
+        out = char( activeEditor.JavaEditor.getShortName );
+    else
+        [~, file, ext] = fileparts( activeEditor.Filename );
+        out = [ file, ext ];
+    end
 end
 end
