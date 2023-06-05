@@ -1,8 +1,8 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1438619341" file="C:\work\repo\github\snippets\MATLAB Snippets.prj" location="C:\work\repo\github\snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="3174802341" file="C:\Users\Jonathan Zea\Documents\matlab-snippets\MATLAB Snippets.prj" location="C:\Users\Jonathan Zea\Documents\matlab-snippets" name="MATLAB Snippets" target="target.mlapps" target-name="Package App">
     <param.appname>MATLAB Snippets</param.appname>
-    <param.authnamewatermark>Pavel Trnka</param.authnamewatermark>
-    <param.email>pavel@trnka.name</param.email>
+    <param.authnamewatermark>Jonathan Zea</param.authnamewatermark>
+    <param.email>jonathan.a.zea@ieee.org</param.email>
     <param.company />
     <param.icon>${PROJECT_ROOT}\MATLAB Snippets_resources\icon_24.png</param.icon>
     <param.icons>
@@ -20,7 +20,7 @@
 &lt;/ul&gt;
 Snippets definition uses syntax compatible with &lt;a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets"&gt;Visual Studio Code&lt;/a&gt; and &lt;a href="https://macromates.com/manual/en/snippets"&gt;Textmate&lt;/a&gt;.</param.description>
     <param.screenshot>${PROJECT_ROOT}\graphics\screenshot01.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>2.3</param.version>
     <param.products.name />
     <param.products.id />
     <param.products.version />
@@ -29,7 +29,6 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     <param.guid>8bfd37e6-10e5-4889-84a4-6c68df10c1c1</param.guid>
     <unset>
       <param.company />
-      <param.version />
       <param.products.name />
       <param.products.id />
       <param.products.version />
@@ -90,19 +89,12 @@ Snippets definition uses syntax compatible with &lt;a href="https://code.visuals
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\work\repo\github" name="snippets" optional="false">C:\work\repo\github\snippets</file>
+      <file location="C:\Users\Jonathan Zea\Documents" name="matlab-snippets" optional="false">C:\Users\Jonathan Zea\Documents\matlab-snippets</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2019b</root>
-      <toolboxes>
-        <toolbox name="neuralnetwork" />
-      </toolboxes>
-      <toolbox>
-        <neuralnetwork>
-          <enabled>true</enabled>
-        </neuralnetwork>
-      </toolbox>
+      <root>C:\Program Files\MATLAB\R2023a</root>
+      <toolboxes />
     </matlab>
     <platform>
       <unix>false</unix>

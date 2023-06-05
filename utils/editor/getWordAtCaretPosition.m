@@ -7,7 +7,13 @@ i2 = [];
 
 activeEditor = getActiveEditor();
 if ~isempty(activeEditor)
-    caretPosition = activeEditor.JavaEditor.getCaretPosition;
+
+    if verLessThan('matlab', '9.11.0')
+        caretPosition = activeEditor.JavaEditor.getCaretPosition;
+    else
+        caretPosition = matlab.desktop.editor.positionInLineToIndex(activeEditor, activeEditor.Selection(1), activeEditor.Selection(2)) - 1;
+    end
+
     text = activeEditor.Text;
     
     [startIndex,endIndex] = regexp(text(1:caretPosition),'\S*$');
